@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-client = OpenAI(api_key = os.getenv("OPENAI_API_KEY")) #will not be sharing my personal key here. need your own api key to run this and maybe hardcode it (not posting env)
+client = OpenAI(api_key = os.getenv("OPENAI_API_KEY"))
 #nltk.download('punkt_tab')
 #Connect to the PostgreSQL database
 conn = psycopg2.connect(
@@ -19,7 +19,7 @@ conn = psycopg2.connect(
 )
 
 cursor = conn.cursor()
-cursor.execute("SELECT title, content FROM articles LIMIT 5") #test with 5 articles so i don't burn a hole through my wallet
+cursor.execute("SELECT title, content FROM articles LIMIT 5") 
 articles = cursor.fetchall()
 
 for title, content in articles:
